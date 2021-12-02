@@ -1,7 +1,6 @@
 from django.urls import path
-from news.views import scrape, news_list
+from news.views import index
 
 urlpatterns = [
-	path('scrape/', scrape, name="scrape"),
 	path('', index, name="index"),
 ]
