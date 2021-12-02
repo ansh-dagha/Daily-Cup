@@ -2,6 +2,7 @@ import requests
 from django.shortcuts import render, redirect
 from bs4 import BeautifulSoup as BSoup
 from news.models import Headline
+from .forms import SignupForm, LoginForm
 
 requests.packages.urllib3.disable_warnings()
 
@@ -9,10 +10,15 @@ def index(request):
 	return render(request, "news/index.html")
 
 def login(request):
+	form = LoginForm()
 	return render(request, "news/login.html")
 
 def signup(request):
-	return render(request, "news/signup.html")
+	form = SignupForm()
+
+
+	context = {'form':form}
+	return render(request, "news/signup.html", context)
 
 def news_list(request):
 	headlines = Headline.objects.all()[::-1]
