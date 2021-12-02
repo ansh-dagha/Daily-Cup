@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="images/LogoX.png" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+    <!-- Font-awesome -->
+    <link rel="stylesheet" href="./css/fontawesome.min.css" />
+    <script src="https://kit.fontawesome.com/555f71f953.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/home-page.css">
+
+    <title>Daily Cup</title>
+</head>
+
+<body>
+
+    <!---------------------------------------- Navbar ---------------------------------------->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid" style="padding: 0 !important;">
+
+            <a class="navbar-brand" href="./index.html"><img class="logo" src="./images/Logo.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: white;"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto" id="nav_contents">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Today</a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" href="./signup.html" class="btn btn-outline-dark signup">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" href="./login.html" class="btn btn-warning login">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="filters">
+
+            <div class="filterbutton">
+                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefilter">
+                    Filters <i class="fas fa-filter"></i>
+                </button>
+            </div>
+
+            <div class="collapse" id="collapsefilter">
+                <div class="checkboxes">
+                    <p>When:</p>
+                    <input type="checkbox" class="btn-check" id="today" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="today">Today</label>
+                    <input type="checkbox" class="btn-check" id="yesterday" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="yesterday">Yesterday</label>
+                    <input type="checkbox" class="btn-check" id="daybeforeyesterday" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="daybeforeyesterday">Day Before Yesterday</label>
+
+                    <hr class="filterhr">
+                    <p>Websites:</p>
+                    <input type="checkbox" class="btn-check" id="timesofindia" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="timesofindia">Times of India</label>
+                    <input type="checkbox" class="btn-check" id="hindustantimes" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="hindustantimes">Hindustan Times</label>
+                    <input type="checkbox" class="btn-check" id="cnn" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="cnn">India Today</label>
+                    <input type="checkbox" class="btn-check" id="ndtv" autocomplete="off">
+                    <label class="btn btn-outline-dark" for="ndtv">NDTV</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row articles-row">
+                <div class="col-12 col-md-6 col-lg-4 articles-col">
+                    <div class="article">
+                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
+                        <div class="article-title">
+                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
+                            <span class="badge bg-primary color-hindustan-times">Hindustan Times</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="article">
+                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
+                        <div class="article-title">
+                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
+                            <span class="badge bg-primary color-times-of-india">Times of India</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="article">
+                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
+                        <div class="article-title">
+                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
+                            <span class="badge bg-primary color-cnn">CNN</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="article">
+                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
+                        <div class="article-title">
+                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
+                            <span class="badge bg-primary color-news18">News 18</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 1000px;"></div>
+
+    <div class="footer">
+        <div class="footer-container">
+            <a class="navbar-brand" href="#"><img class="logo" src="./images/LogoF.png" alt="Logo"></a>
+            <div class="quicklinks ms-auto">
+                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">Explore</a>
+                <a class="nav-link" href="#">Support</a>
+                <a class="nav-link" href="#">Terms and Conditions</a>
+                <a class="nav-link" href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
