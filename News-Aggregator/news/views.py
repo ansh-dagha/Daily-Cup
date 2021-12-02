@@ -6,10 +6,13 @@ from news.models import Headline
 requests.packages.urllib3.disable_warnings()
 
 def index(request):
-	if request.user.is_authenticated():
-		return render(request, "news/index.html")
-	else:
-		return render(request, "news/login.html")
+	return render(request, "news/index.html")
+
+def login(request):
+	return render(request, "news/login.html")
+
+def signup(request):
+	return render(request, "news/signup.html")
 
 def news_list(request):
 	headlines = Headline.objects.all()[::-1]
