@@ -64,6 +64,12 @@ body {
     margin: 5px 0;
 }
 
+.error {
+    color: #ff0000;
+    font-size: 14px;
+    margin: 5px 0px 15px 0px;
+}
+
 .orangebutton:focus,
 .orangebutton:active {
     box-shadow: none !important;
