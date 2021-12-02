@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    background-color: #fbfbf7;
+    padding: 0 60px;
+}
+
+.navbar-brand .logo {
+    height: 75px;
+}
+
+.navbar .nav-item {
+    margin-left: 25px;
+    letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+    color: #616161;
+}
+
+.navbar .nav-link:hover,
+.footer .nav-link:hover {
+    color: #616161;
+    text-decoration: underline;
+    transition: all 0.2s ease 0s;
+}
+
+button:focus,
+button:active {
+    box-shadow: none !important;
+}
+
+.signup {
+    color: #616161;
+    border: #616161 solid 1px;
+    font-size: 15px;
+    padding: 0.5rem 1em;
+}
+
+.login {
+    color: white;
+    border: #dd7155 solid 1px;
+    background-color: #dd7155;
+    font-size: 15px;
+    padding: 0.5rem 1rem;
+}
+
+.signup:hover,
+.login:hover {
+    color: white;
+    border: #dd7155 solid 1px;
+    background-color: #dd7155;
+    text-decoration: underline;
+    transition: all 0.2s ease 0s;
+}
+
+.footer {
+    padding: 50px 60px;
+    background-color: #524c54;
+    display: flex;
+}
+
+.footer-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.footer .nav-link {
+    color: #ffffff;
+}
+
+.footer .nav-link:hover {
+    color: #ffffff;
+}
+
+.quicklinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+@media (max-width:1199px) {
+    .navbar .nav-item {
+        margin-left: 15px;
+    }
+}
+
+@media (max-width:991px) {
+    .navbar .nav-item {
+        margin-left: 0;
+    }
+    .signup,
+    .login {
+        margin: 8px 0;
+    }
+}
+
+@media (max-width:767px) {
+    .navbar {
+        padding: 1.5rem 60px;
+    }
+    .footer {
+        padding: 100px 60px;
+    }
+    .footer-container {
+        display: block;
+    }
+    .quicklinks {
+        display: flex;
+        flex-direction: column;
+        margin-left: -1rem !important;
+        margin-top: 2rem;
+    }
+}
