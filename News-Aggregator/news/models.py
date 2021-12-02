@@ -20,7 +20,7 @@ class Headline(models.Model):
 		return self.title
 
 class User(models.Model):
-	username = models.CharField(max_length=15)
-	email = models.EmailField()
-	password = models.CharField(max_length=20)
-	favourite_paper = models.CharField(max_length=100)
+	username = models.CharField(max_length=15, blank=False, null=False)
+	email = models.EmailField(primary_key=True, blank=False, null=False)
+	password = models.CharField(max_length=20, blank=False, null=False)
+	favourite_paper = models.TextField()

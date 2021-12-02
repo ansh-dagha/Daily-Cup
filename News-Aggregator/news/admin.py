@@ -1,5 +1,5 @@
 from django.contrib import admin
-from news.models import Headline
+from news.models import User
 # Register your models here.
 
-admin.site.register(Headline)
+admin.site.register(User)
