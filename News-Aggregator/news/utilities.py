@@ -1,6 +1,24 @@
 import requests, json
 from bs4 import BeautifulSoup as BSoup
 from news.models import Headline
+import random
+
+def random_images_18():
+    news18_photos = ['static/news/images/blank_news18.jpg',
+    'static/news/images/blank_news18_1.jpg',
+    'static/news/images/blank_news18_2.jpg',
+    ]
+
+    return random.choice(news18_photos)
+
+def random_images_toi():
+    toi_photos = ['static/news/images/blank_image.jpg',
+    'static/news/images/blank_toi.jpg',
+    'static/news/images/blank_toi_2.jpg',
+    ]
+
+    return random.choice(toi_photos)
+
 
 def get_news_from_toi():
     url = "https://timesofindia.indiatimes.com/"
@@ -13,7 +31,7 @@ def get_news_from_toi():
     for article in news[0:length]:
         headline = article.figcaption.getText()
         source = article.find('a', {"class":"_3SqZy"})['href']
-        Headline.objects.create(title=headline, image_src='', source=source, channel=channel, channel_short='times-of-india').save()
+        Headline.objects.create(title=headline, image_src=random_images_toi(), source=source, channel=channel, channel_short='times-of-india').save()
 
 def get_news_from_cnn():
     articles_db = []
@@ -39,7 +57,7 @@ def get_news_from_news18():
             main = artcile.find_all('a')[0]
             link = main['href']
             title = main['title']
-            Headline.objects.create(title=title, image_src='', source=link, channel=channel, channel_short='news-18').save()
+            Headline.objects.create(title=title, image_src=random_images_18(), source=link, channel=channel, channel_short='news-18').save()
 
 def get_news_from_ht():
     session = requests.Session()

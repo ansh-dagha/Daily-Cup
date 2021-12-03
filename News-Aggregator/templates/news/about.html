@@ -1,25 +1,17 @@
-{% extends 'news/base.html' %}
-{% load static %}
+{% extends 'news/base.html' %} {% load static %} {% block title %} About {% endblock %} {% block styling %}
+<link rel="stylesheet" href="{% static 'news/css/about.css' %}"> {% endblock %} {% block content %}
+<!---------------------------------------- Banner ---------------------------------------->
+<div class="banner">
+    <div class="about-container">
+        <h1>Get latest news from across the web <br> without having to read everything</h1>
+        <p class="tagline">Tell us your favourite newspapers and we'll provide it to you at one place</p>
 
-{% block title %} Daily Cup {% endblock %}
-
-{% block styling %}
-    <link rel="stylesheet" href="{% static 'news/css/about.css' %}">
-{% endblock %}
-
-{% block content %}
-    <!---------------------------------------- Banner ---------------------------------------->
-    <div class="banner">
-        <div class="about-container">
-            <h1>Get latest news from across the web <br> without having to read everything</h1>
-            <p class="tagline">Tell us your favourite newspapers and we'll provide it to you at one place</p>
-
-            <div class="steps">
-                <h2>The cure for information overload in <span>3 simple steps</span></h2>
-                <img src="{% static 'news/images/steps.png' %}" alt="">
-            </div>
-            <a type="button" href="{% url 'news:signup' %}" class="btn btn-warning orangebutton">Get Started</a>
+        <div class="steps">
+            <h2>The cure for information overload in <span>3 simple steps</span></h2>
+            <img src="{% static 'news/images/steps.png' %}" alt="">
         </div>
+        <a type="button" href="{% url 'news:signup' %}" class="btn btn-warning orangebutton">Get Started</a>
     </div>
+</div>
 
 {% endblock %}

@@ -17,8 +17,7 @@
     <script src="https://kit.fontawesome.com/555f71f953.js" crossorigin="anonymous"></script>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'news/css/layout.css' %}">
-    {% block styling %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'news/css/layout.css' %}"> {% block styling %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
 </head>
 
@@ -45,23 +44,23 @@
                         <a class="nav-link" href="{% url 'news:today' %}">Today</a>
                     </li>
                     {% if request.session.logged_in %}
-                        <li class="nav-item">
-                            <a type="button" href="{% url 'news:signout' %}" class="btn btn-outline-dark signup">Sign Out</a>
-                        </li>
+                    <li class="nav-item">
+                        <a type="button" href="{% url 'news:signout' %}" class="btn btn-outline-dark signup">Sign Out</a>
+                    </li>
                     {% else %}
-                        <li class="nav-item">
-                            <a type="button" href="{% url 'news:signup' %}" class="btn btn-outline-dark signup">Sign Up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a type="button" href="{% url 'news:login' %}" class="btn btn-warning login">Login</a>
-                        </li>
+                    <li class="nav-item">
+                        <a type="button" href="{% url 'news:signup' %}" class="btn btn-outline-dark signup">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a type="button" href="{% url 'news:login' %}" class="btn btn-warning login">Login</a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
 
-    {% block content %}	{% endblock %}
+    {% block content %} {% endblock %}
 
     <div class="footer">
         <div class="footer-container">
@@ -82,7 +81,8 @@
     <!-- Bootstrap -->
     <script src="{% static 'news/js/bootstrap.bundle.min.js' %}"></script>
 
-	{% block plugins %} {% endblock %}
+    {% block plugins %} {% endblock %}
 
-    </body>
+</body>
+
 </html>

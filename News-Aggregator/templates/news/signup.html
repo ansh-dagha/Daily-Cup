@@ -1,53 +1,45 @@
-{% extends 'news/base.html' %}
-{% load static %}
+{% extends 'news/base.html' %} {% load static %} {% block title %} Sign Up {% endblock %} {% block styling %}
+<link rel="stylesheet" href="{% static 'news/css/login.css' %}"> {% endblock %} {% block content %}
 
-{% block title %} Daily Cup {% endblock %}
-
-{% block styling %}
-    <link rel="stylesheet" href="{% static 'news/css/login.css' %}">
-{% endblock %}
-
-{% block content %}
-
-    <!---------------------------------------- Banner ---------------------------------------->
-    <div class="banner">
-        <div class="row banner-text-row">
-            <div class="col-md-5 col-lg-6 col-xl-7 banner-text-col">
-                <h2>Hey There,</h2>
-                <h2><span>Welcome Back</span></h2>
-                <p class="tagline">How about you tell us a little about yourself...</p>
-            </div>
-            <div class="col-md-7 col-lg-6 col-xl-5 banner-text-col">
-                <div class="form-container">
-                    <form method = "POST" action="/signup">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <input type="" id="username" name="username" placeholder="Username" required>
-                        </div>                    
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="password" id="password" name="password" placeholder="Password" required>
-                        </div>
-                        {% if err %}
-                            <p class='error'>{{err}}</p>
-                        {% endif %}
-                        <h5 class="or-line">Interested Papers</h5>
-                        <div class="checkboxes">
-                            <input type="checkbox" class="btn-check" name='interested_news' id="timesofindia" value='times-of-india' autocomplete="off">
-                            <label class="btn btn-outline-dark" for="timesofindia">Times of India</label>
-                            <input type="checkbox" class="btn-check" name='interested_news' id="hindustantimes" value='hindustan-times' autocomplete="off">
-                            <label class="btn btn-outline-dark" for="hindustantimes">Hindustan Times</label>
-                            <input type="checkbox" class="btn-check" name='interested_news' id="cnn" value='india-today' autocomplete="off">
-                            <label class="btn btn-outline-dark" for="cnn">CNN</label>
-                            <input type="checkbox" class="btn-check" name='interested_news' id="news18" value='news-18' autocomplete="off">
-                            <label class="btn btn-outline-dark" for="news18">News 18</label>
-                        </div>
-                        <button class="orangebutton continue" type="submit">Continue</button>
-                    </form>
-                </div>
+<!---------------------------------------- Banner ---------------------------------------->
+<div class="banner">
+    <div class="row banner-text-row">
+        <div class="col-md-5 col-lg-6 col-xl-7 banner-text-col">
+            <h2>Hey There,</h2>
+            <h2><span>Welcome Back</span></h2>
+            <p class="tagline">How about you tell us a little about yourself...</p>
+        </div>
+        <div class="col-md-7 col-lg-6 col-xl-5 banner-text-col">
+            <div class="form-container">
+                <form method="POST" action="/signup">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="" id="username" name="username" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                    </div>
+                    {% if err %}
+                    <p class='error'>{{err}}</p>
+                    {% endif %}
+                    <h5 class="or-line">Interested Papers</h5>
+                    <div class="checkboxes">
+                        <input type="checkbox" class="btn-check" name='interested_news' id="timesofindia" value='times-of-india' autocomplete="off">
+                        <label class="btn btn-outline-dark" for="timesofindia">Times of India</label>
+                        <input type="checkbox" class="btn-check" name='interested_news' id="hindustantimes" value='hindustan-times' autocomplete="off">
+                        <label class="btn btn-outline-dark" for="hindustantimes">Hindustan Times</label>
+                        <input type="checkbox" class="btn-check" name='interested_news' id="cnn" value='india-today' autocomplete="off">
+                        <label class="btn btn-outline-dark" for="cnn">CNN</label>
+                        <input type="checkbox" class="btn-check" name='interested_news' id="news18" value='news-18' autocomplete="off">
+                        <label class="btn btn-outline-dark" for="news18">News 18</label>
+                    </div>
+                    <button class="orangebutton continue" type="submit">Continue</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
