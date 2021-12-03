@@ -1,16 +1,35 @@
 import requests, json
 from django.shortcuts import render, redirect
-from news.models import User
+from news.models import User, Headline
 from news.forms import LoginForm
-from django.contrib.auth import login, authenticate
+from datetime import datetime, timedelta
+from news.utilities import *
 requests.packages.urllib3.disable_warnings()
 
+current_date = datetime.date(datetime.now()-timedelta(1))
+
+def scrape():
+	Headline.objects.all().delete()
+	get_news_from_toi()
+	get_news_from_cnn()
+	get_news_from_news18()
+	get_news_from_ht()
+
 def index(request):
-	return render(request, "news/index.html")
+	global current_date
+	today = datetime.date(datetime.now())
+	if today > current_date:
+		print('Update DB')
+		scrape()
+		current_date = today
+	headlines = Headline.objects.order_by('?').all()
+	data = {'headlines':headlines}
+	return render(request, "news/index.html",data)
 
 def signout(request):
-	request.session['logged_in']=False
-	return render(request, "news/index.html")
+	request.session.clear()
+	request.session['logged_in'] = False
+	return redirect('/')
 
 def login(request):
 	form = LoginForm()
@@ -19,10 +38,11 @@ def login(request):
 		email = request.POST.get('email')
 		password = request.POST.get('password')
 		try:
-			user_obj = User.objects.get(email=email).__dict__
-			if user_obj['email']== email and user_obj['password'] == password:
+			user_obj = User.objects.get(email=email)
+			if user_obj.email== email and user_obj.password == password:
 				request.session['logged_in'] = True
-				return redirect('index')
+				request.session['email'] = email
+				return redirect('/')
 		except:
 			err='Invalid Credentials!'
 	context = {'form':form, 'err':err}
@@ -39,6 +59,7 @@ def signup(request):
 			User.objects.create(username = username,
 								email = email,
 								password = password,
+								feed_date = datetime.date(datetime.now()-timedelta(1)),
 								favourite_paper= json.dumps(interested_news)).save()
 		except:
 			err='Email Already Exists!'
@@ -48,6 +69,27 @@ def signup(request):
 		return redirect('/')
 	data = {'err':err}
 	return render(request, "news/signup.html", data)
+
+def getallnews(request):
+	pass
+
+def aboutus(request):
+	return render(request,"news/about.html")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # def news_list(request):
 # 	headlines = Headline.objects.all()[::-1]
