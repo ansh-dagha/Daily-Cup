@@ -27,10 +27,14 @@ def index(request):
 	return render(request, "news/index.html",data)
 
 def today(request):
-	interested_news = json.loads(User.objects.get(email=request.session['email']).favourite_paper)
-	headlines = Headline.objects.order_by('?').all()
-	data = {'interested_news':interested_news, 'headlines':headlines}
-	return render(request, "news/index.html", data)
+	if not request.session['logged_in']:
+		return redirect('/')
+	else:
+		interested_news = json.loads(User.objects.get(email=request.session['email']).favourite_paper)
+		headlines = Headline.objects.order_by('?').all()
+		data = {'interested_news':interested_news, 'headlines':headlines}
+		return render(request, "news/index.html", data)
+	
 
 def signout(request):
 	request.session.clear()
@@ -65,13 +69,13 @@ def signup(request):
 			User.objects.create(username = username,
 								email = email,
 								password = password,
-								feed_date = datetime.date(datetime.now()-timedelta(1)),
 								favourite_paper= json.dumps(interested_news)).save()
 		except:
 			err='Email Already Exists!'
 			data = {'err':err}
 			return render(request, "news/signup.html", data)
 		request.session['logged_in'] = True
+		request.session['email'] = email
 		return redirect('/')
 	data = {'err':err}
 	return render(request, "news/signup.html", data)
