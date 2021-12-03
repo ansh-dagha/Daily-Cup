@@ -8,7 +8,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="main-container">
         <div class="filters">
 
@@ -44,43 +43,20 @@
 
         <div class="container">
             <div class="row articles-row">
+                {% for headline in headlines %}
                 <div class="col-12 col-md-6 col-lg-4 articles-col">
                     <div class="article">
-                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
-                        <div class="article-title">
-                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
-                            <span class="badge bg-primary color-hindustan-times">Hindustan Times</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="article">
-                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
-                        <div class="article-title">
-                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
-                            <span class="badge bg-primary color-times-of-india">Times of India</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="article">
-                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
-                        <div class="article-title">
-                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
-                            <span class="badge bg-primary color-cnn">CNN</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="article">
-                        <img class="article-image" src="https://images.hindustantimes.com/img/2021/11/16/550x309/PM_Hercules_1637049615987_1637049616216.jpeg" alt="">
-                        <div class="article-title">
-                            <p>Kurebhar airstrip is part IAF’s op-plan to counter China</p>
-                            <span class="badge bg-primary color-news18">News 18</span>
-                        </div>
-                    </div>
-                </div>
+                        <img class="article-image" src='{{headline.image_src}}' onerror="this.onerror=null;this.src='{% static 'news/images/blank_news.png' %}'">
 
+                        <div class="article-title">
+                            <a href='{{headline.source}}'>
+                                <p>{{headline.title}}</p>
+                            </a>
+                            <span class="badge bg-primary color-{{headline.channel_short}}">{{headline.channel}}</span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

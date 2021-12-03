@@ -5,8 +5,10 @@ from django.db import models
 
 class Headline(models.Model):
 	title = models.CharField(max_length=200)
-	image = models.URLField(null=True, blank=True)
-	url = models.TextField()
+	image_src = models.URLField(null=True, blank=True)
+	source = models.URLField(null=False, blank=False)
+	channel = models.CharField(max_length=30)
+	channel_short = models.CharField(max_length=30)
 
 	def __str__(self):
 		return self.title

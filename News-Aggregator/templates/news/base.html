@@ -36,7 +36,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto" id="nav_contents">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{% url 'news:aboutus' %}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Explore</a>
@@ -65,9 +65,9 @@
 
     <div class="footer">
         <div class="footer-container">
-            <a class="navbar-brand" href="#"><img class="logo" src="{% static 'news/images/LogoF.png' %}" alt="Logo"></a>
+            <a class="navbar-brand" href="{% url 'news:index' %}"><img class="logo" src="{% static 'news/images/LogoF.png' %}" alt="Logo"></a>
             <div class="quicklinks ms-auto">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="{% url 'news:aboutus' %}">About</a>
                 <a class="nav-link" href="#">Explore</a>
                 <a class="nav-link" href="#">Support</a>
                 <a class="nav-link" href="#">Terms and Conditions</a>

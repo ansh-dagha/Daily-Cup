@@ -1,5 +1,5 @@
 from django.urls import path
-from news.views import index, login, signup, signout
+from news.views import *
 
 app_name = 'news'
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
 	path('login', login, name="login"),
 	path('signup', signup, name="signup"),
 	path('signout', signout, name="signout"),
+	path('aboutus', aboutus, name="aboutus"),
 ]

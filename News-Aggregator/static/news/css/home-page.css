@@ -69,6 +69,7 @@
     object-fit: cover;
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
+    height:300px;
 }
 
 .article-title {
@@ -80,6 +81,9 @@
     cursor: pointer;
 }
 
+.article p{
+    min-height: 3.375rem;
+}
 
 /* Newspapers Colours */
 
@@ -95,6 +99,6 @@
     background-color: #cc0000 !important;
 }
 
-.color-news18 {
+.color-news-18 {
     background-color: #001e42 !important;
 }
