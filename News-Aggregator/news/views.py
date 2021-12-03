@@ -26,6 +26,12 @@ def index(request):
 	data = {'headlines':headlines}
 	return render(request, "news/index.html",data)
 
+def today(request):
+	interested_news = json.loads(User.objects.get(email=request.session['email']).favourite_paper)
+	headlines = Headline.objects.order_by('?').all()
+	data = {'interested_news':interested_news, 'headlines':headlines}
+	return render(request, "news/index.html", data)
+
 def signout(request):
 	request.session.clear()
 	request.session['logged_in'] = False
@@ -75,47 +81,3 @@ def getallnews(request):
 
 def aboutus(request):
 	return render(request,"news/about.html")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# def news_list(request):
-# 	headlines = Headline.objects.all()[::-1]
-# 	context = {
-# 		'object_list': headlines,
-# 	}
-# 	return render(request, "news/home.html", context)
-
-# def scrape(request):
-# 	session = requests.Session()
-# 	session.headers = {"User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)"}
-# 	# url = "https://www.theonion.com/"
-# 	url = "https://timesofindia.indiatimes.com/"
-
-# 	content = session.get(url, verify=False).content
-# 	soup = BSoup(content, "html.parser")
-# 	News = soup.find_all('figure', {"class":"_1Fkp2"})
-# 	for artcile in News:
-# 		main = artcile.find_all('a')[0]
-# 		link = main['href']
-# 		image_src = str(main.find('img')['src'])
-# 		# title = main['title']
-# 		title = 'test'
-# 		new_headline = Headline()
-# 		new_headline.title = title
-# 		new_headline.url = link
-# 		new_headline.image = image_src
-# 		new_headline.save()
-# 	return redirect("../")

@@ -102,3 +102,7 @@
 .color-news-18 {
     background-color: #001e42 !important;
 }
+
+.hidden-card{
+    display:none;
+}

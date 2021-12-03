@@ -39,10 +39,10 @@
                         <a class="nav-link" href="{% url 'news:aboutus' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Explore</a>
+                        <a class="nav-link" href="{% url 'news:index' %}">Explore</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Today</a>
+                        <a class="nav-link" href="{% url 'news:today' %}">Today</a>
                     </li>
                     {% if request.session.logged_in %}
                         <li class="nav-item">
@@ -68,7 +68,7 @@
             <a class="navbar-brand" href="{% url 'news:index' %}"><img class="logo" src="{% static 'news/images/LogoF.png' %}" alt="Logo"></a>
             <div class="quicklinks ms-auto">
                 <a class="nav-link" href="{% url 'news:aboutus' %}">About</a>
-                <a class="nav-link" href="#">Explore</a>
+                <a class="nav-link" href="{% url 'news:index' %}">Explore</a>
                 <a class="nav-link" href="#">Support</a>
                 <a class="nav-link" href="#">Terms and Conditions</a>
                 <a class="nav-link" href="#">Privacy Policy</a>

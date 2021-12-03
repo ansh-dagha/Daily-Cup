@@ -8,4 +8,5 @@ urlpatterns = [
 	path('signup', signup, name="signup"),
 	path('signout', signout, name="signout"),
 	path('aboutus', aboutus, name="aboutus"),
+	path('today', today, name="today"),
 ]

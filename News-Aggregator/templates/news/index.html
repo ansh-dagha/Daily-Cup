@@ -12,7 +12,7 @@
         <div class="filters">
 
             <div class="filterbutton">
-                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapsefilter">
+                <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" id='filter-button' data-bs-target="#collapsefilter">
                     Filters <i class="fas fa-filter"></i>
                 </button>
             </div>
@@ -29,14 +29,14 @@
 
                     <hr class="filterhr">
                     <p>Websites:</p>
-                    <input type="checkbox" class="btn-check" id="timesofindia" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="timesofindia">Times of India</label>
-                    <input type="checkbox" class="btn-check" id="hindustantimes" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="hindustantimes">Hindustan Times</label>
-                    <input type="checkbox" class="btn-check" id="cnn" autocomplete="off">
+                    <input type="checkbox" class="btn-check interested-news" id="times-of-india" onchange='update_feed();' autocomplete="off">
+                    <label class="btn btn-outline-dark" for="times-of-india">Times of India</label>
+                    <input type="checkbox" class="btn-check interested-news" id="hindustan-times" onchange='update_feed();' autocomplete="off">
+                    <label class="btn btn-outline-dark" for="hindustan-times">Hindustan Times</label>
+                    <input type="checkbox" class="btn-check interested-news" id="cnn" onchange='update_feed();' autocomplete="off">
                     <label class="btn btn-outline-dark" for="cnn">CNN</label>
-                    <input type="checkbox" class="btn-check" id="news18" autocomplete="off">
-                    <label class="btn btn-outline-dark" for="news18">News 18</label>
+                    <input type="checkbox" class="btn-check interested-news" id="news-18" onchange='update_feed();' autocomplete="off">
+                    <label class="btn btn-outline-dark" for="news-18">News 18</label>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="container">
             <div class="row articles-row">
                 {% for headline in headlines %}
-                <div class="col-12 col-md-6 col-lg-4 articles-col">
+                <div class="col-12 col-md-6 col-lg-4 articles-col card-{{headline.channel_short}}">
                     <div class="article">
                         <img class="article-image" src='{{headline.image_src}}' onerror="this.onerror=null;this.src='{% static 'news/images/blank_news.png' %}'">
 
@@ -60,4 +60,16 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block plugins %}
+    <script src="{% static 'news/js/script.js' %}"></script>
+    <script>
+        document.querySelector('#filter-button').click();
+        let interested_news = {{interested_news|safe}};
+        for(channel of interested_news){
+            document.querySelector('#'+channel).checked = true;
+        }
+        update_feed();
+    </script>
 {% endblock %}
