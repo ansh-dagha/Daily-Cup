@@ -8,7 +8,7 @@
 [![](https://img.shields.io/static/v1?label=&message=CSS&color=grey&style=for-the-badge&logo=CSS3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![](https://img.shields.io/static/v1?label=&message=JavaScript&color=grey&style=for-the-badge&logo=JavaScript)](https://www.javascript.com/)
 [![](https://img.shields.io/static/v1?label=&message=Bootstrap&color=grey&style=for-the-badge&logo=Bootstrap)](https://www.javascript.com/)
-[![](https://img.shields.io/static/v1?label=&message=Django&color=grey&style=for-the-badge&logo=django)](https://www.python.org)
+[![](https://img.shields.io/static/v1?label=&message=Django&color=grey&style=for-the-badge&logo=django)](https://www.djangoproject.com/)
 [![](https://img.shields.io/static/v1?label=&message=SQLite&color=grey&style=for-the-badge&logo=sqlite)](https://www.sqlite.org/)
 </div><br/>
 
